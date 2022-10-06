@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Google</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+  </head>
+  <body>
+
+    <div class="container">
+        <form class="form-group" #forms="ngForm">
+
+          <div  class="form-group">
+            <label>First Name :</label><br>
+            <input [formControl]="firstname" pattern="[a-zA-Z0-9]+" type="text" #a2> 
+            <div *ngIf=" firstname.touched && !firstname.valid" id="names" >First name is required</div>
+            <div *ngIf=" firstname.errors?.['pattern'] " >Only numbers and letters acceptable</div>
+            <!-- <div *ngIf=" name.errors?.['minlength'] " name="same" >Min length is needed</div> -->
+          </div>
+
+            <div class="form-group">
+            <label>Last Name :</label><br>
+            <input  [formControl]="lastname" pattern="[a-zA-Z0-9]+" type="text" #a3>
+                <div *ngIf=" lastname.touched && !lastname.valid " id="names" >Last name is required</div>
+                <div *ngIf=" lastname.errors?.['pattern'] " >Only numbers and letters acceptable</div>
+            </div>
+
+            <div class="form-group">
+            <label>Phone Number :</label><br>
+            <input [formControl]="phone" pattern="[0-9]+" type="text" #a4>
+            <div *ngIf=" phone.errors?.['pattern'] ">Only numbers is acceptable</div>
+            <div *ngIf=" phone.touched && !phone.valid ">Phone number is required</div>
+            </div>
+
+            <div class="form-group">
+            <label>Date Of Birth :</label><br>
+            <input  type="date" #a5>
+            <!-- [formControl]="birth" -->
+            <div>Age must be 18 or more</div>
+            </div>
+
+            <div class="form-group">
+            <label>Email Address :</label><br>
+            <input [formControl]="email" type="email" pattern="[a-zA-Z0-9_.+-]+@[a-zA-Z]+\.[a-zA-Z]+">
+            <div *ngIf=" email.touched && !email.valid " >Email is required</div>
+            <div *ngIf=" email.errors?.['pattern'] " >Email is invalid 'ex: abc@gmail.com' as given pattern</div>
+            <!-- <div *ngIf=" email.errors?.['email'] ">example</div> -->
+            </div>
+
+            <div class="form-group" [formGroup]="passfrom" >
+            <label>Password :</label><br>
+            <input [formControl]="pass" formControlName="password1" type="password">
+            <div *ngIf=" pass.touched && !pass.valid " >Password is required</div>
+            <!-- <div *ngIf=" pass.errors?.['pattern'] " >Password must contain one Upper,lower and speciel charactor</div> -->
+            <div *ngIf=" pass.errors?.['minlength'] " >Minimum 8 charactors needed</div>
+            
+            <br>
+            <!-- <div> -->
+            <label>Confirm Password :</label><br>
+            <input type="password" formControlName="password2">
+            <div *ngIf=" passwordMatchError " >Password is must be same</div>
+            <!-- </div> -->
+
+          </div>
+            <div>
+            <label>Add Image :</label><br>
+            <input   type="file" accept=" .png, .jpg .jpeg " required multiple>
+            </div>
+            <br>
+
+            <div class="btn-group">
+                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="reset" class="btn btn-danger">Reset</button>
+            </div>
+
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div [formGroup]="passfrom">
+      <label>Password :</label><br>
+      <input type="text" minlength="6" formControlName="password1">
+      <br><br>
+      <label>Confirm password :</label><br>
+      <input formControlName="password2" type="text">
+      <div *ngIf=" passwordMatchError " >password not match</div>
+    </div>
+
+
+
+
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+  </body>
+</html>

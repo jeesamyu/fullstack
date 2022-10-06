@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+  </head>
+  <body>
+
+<div class="container w-100">
+    <form [formGroup]="totalform"  (ngSubmit)="callingFunction()">
+
+<!-- Fist Name -->
+<div >
+<div class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
+   
+        <label>First Name :</label><br>
+          <input type="text" [ngStyle]=" { 'border-left': totalform.controls['firstName'].touched && totalform.controls['firstName'].invalid ? '8px solid red' : ''} " pattern="[a-zA-Z0-9]+" autocomplete="off" placeholder="First name" formControlName="firstName">
+
+          <div class="danger" *ngIf=" totalform.controls['firstName'].errors?.['pattern']">Only Letters and Numbers allowed</div>
+          <div class="danger" *ngIf=" submitted && totalform.controls['firstName'].errors?.['required'] ">name is required</div>
+
+</div>
+<br>
+
+<!-- Last Name -->
+<div class="from-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+      <label>Last Name :</label><br>
+
+          <input type="text" [ngStyle]=" { 'border-left': totalform.controls['lastName'].touched && totalform.controls['lastName'].invalid ? '8px solid red' : ''} " pattern="[a-zA-Z0-9]+" autocomplete="off"  placeholder="Last name" formControlName="lastName">
+ 
+          <div class="danger" *ngIf=" totalform.controls['lastName'].errors?.['pattern'] " >Only Letters and Numbers allowed</div>
+
+          <div class="danger" *ngIf=" submitted && totalform.controls['firstName'].errors?.['required'] ">name is required</div>
+  
+</div>
+<br>
+
+
+<!-- Phone Number -->
+<div class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+      <label>Phone number : </label><br>
+          <input type="text" [ngStyle]=" { 'border-left': totalform.controls['phone'].touched && totalform.controls['phone'].invalid ? '8px solid red' : ''} " pattern="[0-9]+" autocomplete="off" placeholder="Phone number" formControlName="phone">
+
+          <div class="danger" *ngIf=" totalform.controls['phone'].errors?.['minlength'] " >Enter valid phone number</div>
+
+          <div class="danger" *ngIf=" totalform.controls['phone'].errors?.['pattern'] " >Only Numbers are allowed</div>
+
+          <div class="danger" *ngIf=" submitted && totalform.controls['phone'].errors?.['required'] ">Phone number is required</div>
+
+</div>
+<br>
+
+<!-- Date Of Birth -->
+<div class="from-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <label>Date of Birth :</label><br>
+            <input type="date" autocomplete="off" formControlName="dob">
+
+            <div class="danger" *ngIf=" submitted && totalform.controls['dob'].errors?.['required'] ">Need to fill this field</div>
+
+</div>       
+<br>
+
+<!-- Add image File -->
+<div class="from-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+        <label>Add Image :</label><br>
+        <input type="file" autocomplete="off" maxFileSize="2000"  formControlName="images" accept="image/jpg,image/jpeg,image/jpg">
+
+        <div *ngIf=" totalform.controls['images'].errors?.['accept'] ">(.JPG , .JPEG , .PNG ) formats accepted</div>
+
+        <div class="danger" *ngIf=" submitted && totalform.controls['images'].errors?.['required'] ">This field cant be empty</div>
+
+</div>
+<br>
+
+<!-- Email -->
+<div class="from-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
+       <label style="margin-top:10px;">Email :</label> <br>
+       <input type="email" [ngStyle]=" { 'border-left': totalform.controls['emails'].touched && totalform.controls['emails'].invalid ? '8px solid red' : ''} " autocomplete="off" pattern="[a-zA-Z0-9_.+-]+@[a-zA-Z]+\.[a-zA-Z]+" placeholder="Image for profile" formControlName="emails">
+
+        <div class="danger" *ngIf=" submitted && totalform.controls['emails'].errors?.['required'] ">Email is needed</div>
+
+        <div class="danger" *ngIf=" totalform.controls['emails'].errors?.['pattern'] " >Enter Valid email 'ex: abc@gmail.com' as given pattern</div>
+</div>
+<br>
+
+<!-- Password group need to confirm password and con.password is same -->
+      
+<!-- password -->
+  <div [formGroup]="PassWord" class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+          <label>Password</label> <br>
+            <input type="text" [ngStyle]=" { 'border-left': PassWord.controls['passbox1'].touched && PassWord.controls['passbox1'].invalid ? '8px solid red' : ''} " autocomplete="off" placeholder="Password*" formControlName="passbox1">
+            <ng-content></ng-content>
+            
+            <div class="danger" *ngIf=" PassWord.controls['passbox1'].errors?.['pattern'] "> Password must contain one Upper,Lower,number and special charactors </div>
+
+            <div class="danger" *ngIf=" submitted && PassWord.controls['passbox1'].errors?.['required'] " >Password is required</div>
+          </div>
+          <br>
+
+      <div [formGroup]="PassWord" class="col-sm-12 col-md-12 col-lg-12 col-xl-12 conf">
+          <label>Confirm password :</label><br>
+            <input type="text" [ngStyle]=" { 'border-left': passwordMatchError ? '8px solid red' : '' } " autocomplete="off" placeholder="Confirm Password*" formControlName="passbox2">
+
+            <div class="danger" *ngIf=" passwordMatchError ">Password , Confirm Password must be same</div>
+
+            <div class="danger" *ngIf=" submitted && PassWord.controls['passbox2'].errors?.['required'] " >Password is required</div>
+          </div>
+
+
+<div class="mt-5">
+
+      <button type="submit" class="btn btn1 " style="margin-left:70px;">Submit</button>
+      <button type="reset" class="btn btn2 ms-5" >Reset</button>
+
+</div>
+</div>  
+
+      </form>
+    </div>
+     
+      <!-- <h3>total : {{ totalform.status | json }} </h3><br>
+      <h3>password : {{ PassWord.status  }} </h3> -->
+
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+  </body>
+</html>

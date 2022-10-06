@@ -1,0 +1,135 @@
+html,body{
+    margin:0;
+    padding:0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+}
+.container{
+    background-color: white;
+    box-shadow:0 0 10px 0 rgb(67, 67, 67);
+    justify-content: center;
+    display: flex;
+    position: relative;
+    border-radius:10px;
+}
+
+form{
+    padding:30px;
+}
+
+
+label{
+    padding-top:5px;
+}
+.alert-danger{
+    background-color:rgb(255, 135, 135);
+}
+small{
+    width:55%;
+    position:absolute;
+    height:20px;
+    padding: 0%;
+}
+
+.alert{
+    border-left: 3px solid red;
+}
+
+input{
+    border:1px solid gray;
+    border-radius:5px;
+    outline:none;
+}
+
+
+
+
+this
+
+html,body{
+    margin:0;
+    padding:0;
+    position: relative;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+label{
+    color: #ffffff;
+}
+
+.alert-danger{
+    padding:3px;
+    margin-top:5px;
+}
+
+input{
+    border-bottom:2px solid #ffffff;
+    padding:5px;
+    padding-left:5px;
+    padding-right:5px;
+    font-size:19px;
+    border-radius: 0px;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    outline: none;
+    background-color: #000000;
+    color: #ffffff;
+}
+input:focus{
+    border-bottom:2px solid #00c3ff;
+    -webkit-box-shadow: 0 8px 6px -6px rgb(154, 48, 48);
+       -moz-box-shadow: 0 8px 6px -6px rgb(145, 39, 39);
+            box-shadow: 0 4px 10px -1px #00d9ff;
+}
+
+::-webkit-calendar-picker-indicator {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 24 24"><path fill="%23bbbbbb" d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>');
+  }
+
+.btn1{
+  border-radius:20px;
+  padding:2px;
+  width:110px;
+  border: 2px solid #23cf23;
+  background-color:transparent;
+  color:#23cf23;
+}
+.btn2{
+  border-radius:20px;
+  width:110px;
+  padding:2px;
+  background-color:transparent;
+  border:2.5px solid #d83510;
+  color: #d83510;
+}
+
+.btn1:hover{
+    color: #00ff00;
+    border:2px solid #00ff00;
+    box-shadow:0 0 10px #00ff00;
+}
+.btn2:hover{
+    color:#ff0000;
+    border: 2.5px solid #ff3030;
+    box-shadow: 0 0 10px #ff3030;
+}
+
+.row{
+    line-height: 2;
+}
+/* .conf{
+    margin-left:12px;
+} */
+
+input[type=email]{
+    margin-bottom:-3px;
+    height:46px ;
+}
